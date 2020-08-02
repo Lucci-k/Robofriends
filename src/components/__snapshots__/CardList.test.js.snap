@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardList renders correctly 1`] = `
+<div
+  className="bg-light-green tc dib br3 pa3 ma2 grow bw2 shadow-5"
+>
+  <img
+    alt="robots"
+    src="https://robohash.org/1?size=200x200"
+  />
+  <div>
+    <h2>
+      John Snow
+    </h2>
+    <p>
+      snow@gmail.com
+    </p>
+  </div>
+</div>
+`;
