@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import {connect} from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox'
@@ -7,6 +7,10 @@ import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css'
 
 import {setSearchField, requestRobots} from '../actions';
+
+// import Header from '../components/Header';
+// built-in code splitting react lazy
+const Header = React.lazy(() => import('../components/Header'));
 
 const mapStateToProps = state => {
 	return {
@@ -39,7 +43,9 @@ class App extends Component {
 			<h1>Loading...</h1> :
 			(
 			<div className='tc'>
-				<h1 className='f1'>RoboFriends</h1>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Header />
+				</Suspense>
 				<SearchBox searchChange={onSearchChange}/>
 				<Scroll>
 					<ErrorBoundry>
